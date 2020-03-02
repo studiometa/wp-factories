@@ -1,0 +1,14 @@
+{
+	"name": "studiometa/wp-factories",
+	"description": "Helper to easily create Wordpress taxonomy/custom post type.",
+  "version": "1.0.0",
+	"license": "MIT",
+	"require": {
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "^3.4",
+		"wp-coding-standards/wpcs": "^2.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+	}
+}
