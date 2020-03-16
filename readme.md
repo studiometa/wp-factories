@@ -8,9 +8,36 @@
 composer require studiometa/wp-factories
 ```
 
-## Documentation
+In your wordpress theme:
 
-> See demo folder to see an example on how to implement theses factories.
+functions.php
+```php
+use Studiometa\WP\Factories\Post_Type;
+
+/**
+ * Register post types
+ *
+ * @return void
+ */
+public function register_post_types() {
+  Post_Type::create(
+    'Car',
+    'Cars',
+    'i18n_domain',
+    array(
+      'has_archive' => true,
+      'supports' => array(
+        'title',
+        'custom-fields',
+        'thumbnail',
+      ),
+    ),
+    true
+  );
+}
+
+add_action( 'init', array( $this, 'register_post_types' ) );
+```
 
 ## Contributing
 
