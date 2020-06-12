@@ -43,17 +43,16 @@ class Post_Type {
 	/**
 	 * Create a custom post type
 	 *
+	 * @param  string       $slug               Slug.
 	 * @param  string       $singular           Singular name.
 	 * @param  string       $plural             Plural name.
 	 * @param  string|null  $translation_domain Translation domain name.
 	 * @param  array        $args               Custom arguments.
-	 * @param  bool|boolean $public             Is post type public?.
+	 * @param  bool|boolean $publicly_queryable Is post type public?.
 	 * @param  array        $supports           Supported features.
 	 * @return array                            Custom post type
 	 */
-	public static function create( string $singular, string $plural, string $translation_domain = null, array $args = array(), bool $public = true, array $supports = array() ) {
-		$singular_lowercase = strtolower( $singular );
-
+	public static function create( string $slug, string $singular, string $plural, string $translation_domain = null, array $args = array(), bool $publicly_queryable = true, array $supports = array() ) {
 		$labels = self::generate_labels( $singular, $plural, $translation_domain );
 
 		// phpcs:disable WordPress.WP.I18n
@@ -61,7 +60,7 @@ class Post_Type {
 			'label'              => __( $singular, $translation_domain ),
 			'labels'             => $labels,
 			'public'             => true,
-			'publicly_queryable' => $public,
+			'publicly_queryable' => $publicly_queryable,
 			'capability_type'    => 'post',
 			'supports'           => array(
 				'title',
@@ -74,10 +73,10 @@ class Post_Type {
 
 		$args = array_merge( $default_args, $args );
 
-		$post_type = register_post_type( $singular_lowercase, $args );
+		$post_type = register_post_type( $slug, $args );
 
 		if ( count( $supports ) > 0 ) {
-			add_post_type_support( $singular_lowercase, $supports );
+			add_post_type_support( $slug, $supports );
 		}
 
 		return $post_type;
