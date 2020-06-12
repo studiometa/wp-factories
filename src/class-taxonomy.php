@@ -43,7 +43,7 @@ class Taxonomy {
 	/**
 	 * Create a taxonomy
 	 *
-	 * @param  string $key                Taxonomy key.
+	 * @param  string $slug               Taxonomy slug.
 	 * @param  string $singular           Singular name.
 	 * @param  string $plural             Plural name.
 	 * @param  array  $post_types         Post types to attached to.
@@ -52,12 +52,12 @@ class Taxonomy {
 	 * @param  bool   $public             Is taxonomy public?.
 	 * @return array                      Taxonomy object.
 	 */
-	public static function create( string $key, string $singular, string $plural, array $post_types, string $translation_domain, array $args = array(), bool $public = true ) {
+	public static function create( string $slug, string $singular, string $plural, array $post_types, string $translation_domain, array $args = array(), bool $hierarchical = false, bool $public = true ) {
 		$labels = self::generate_labels( $singular, $plural, $translation_domain );
 
 		$default_args = array(
 			'labels'            => $labels,
-			'hierarchical'      => false,
+			'hierarchical'      => $hierarchical,
 			'public'            => $public,
 			'query_var'         => true,
 			'show_ui'           => true,
@@ -68,6 +68,6 @@ class Taxonomy {
 
 		$args = array_merge( $default_args, $args );
 
-		return register_taxonomy( $key, $post_types, $args );
+		return register_taxonomy( $slug, $post_types, $args );
 	}
 }
