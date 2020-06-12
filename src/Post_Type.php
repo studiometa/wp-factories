@@ -19,7 +19,7 @@ class Post_Type {
 	 * @param  string $translation_domain Translation domain name.
 	 * @return array                      Labels
 	 */
-	public static function generate_labels( string $singular, string $plural, string $translation_domain ) {
+	public static function generate_labels( string $singular, string $plural, string $translation_domain = null ) {
 		$singular_lowercase = strtolower( $singular );
 		$plural_lowercase   = strtolower( $plural );
 
@@ -55,7 +55,7 @@ class Post_Type {
 	 * @param  string       $slug               Slug.
 	 * @param  string       $singular           Singular name.
 	 * @param  string       $plural             Plural name.
-	 * @param  string|null  $translation_domain Translation domain name.
+	 * @param  string       $translation_domain Translation domain name.
 	 * @param  array        $args               Custom arguments.
 	 * @param  bool|boolean $publicly_queryable Is post type public?.
 	 * @param  array        $supports           Supported features.
