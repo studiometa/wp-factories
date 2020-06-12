@@ -21,6 +21,7 @@ use Studiometa\WP\Factories\Post_Type;
  */
 public function register_post_types() {
   Post_Type::create(
+    'beautifull-car',
     'Car',
     'Cars',
     'i18n_domain',
