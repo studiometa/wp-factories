@@ -1,6 +1,15 @@
 <?php
+/**
+ * Taxonomy class file.
+ *
+ * @package  studiometa/wp-factories
+ */
+
 namespace Studiometa\WP\Factories;
 
+/**
+ * Taxonomy Class
+ */
 class Taxonomy {
 	/**
 	 * Generate labels
@@ -49,6 +58,7 @@ class Taxonomy {
 	 * @param  array  $post_types         Post types to attached to.
 	 * @param  string $translation_domain Translation domain.
 	 * @param  array  $args               Custom arguments.
+	 * @param  bool   $hierarchical       Is taxonomy hierarchical?.
 	 * @param  bool   $public             Is taxonomy public?.
 	 * @return array                      Taxonomy object.
 	 */
