@@ -1,6 +1,15 @@
 <?php
+/**
+ * Post_Type class file.
+ *
+ * @package  studiometa/wp-factories
+ */
+
 namespace Studiometa\WP\Factories;
 
+/**
+ * Post_Type Class
+ */
 class Post_Type {
 	/**
 	 * Generate labels
@@ -15,7 +24,7 @@ class Post_Type {
 		$plural_lowercase   = strtolower( $plural );
 
 		// phpcs:disable WordPress.WP.I18n
-		$labels = [
+		$labels = array(
 			'name'                  => __( $plural, $translation_domain ),
 			'singular_name'         => __( $singular, $translation_domain ),
 			'menu_name'             => __( $plural, $translation_domain ),
@@ -34,7 +43,7 @@ class Post_Type {
 			'search_items'          => __( 'Search ' . $plural_lowercase, $translation_domain ),
 			'not_found'             => __( 'No ' . $singular_lowercase, $translation_domain ),
 			'not_found_in_trash'    => __( 'No ' . $singular_lowercase . ' in trash', $translation_domain ),
-		];
+		);
 		// phpcs:enable
 
 		return $labels;

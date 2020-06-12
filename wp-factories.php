@@ -1,7 +1,8 @@
 <?php
 /**
- * Prevent direct access.
+ * @package  studiometa/wp-factories
  */
+
 defined( 'ABSPATH' ) || exit;
 
 // Define STUDIOMETA_WP_FACTORIES_PACKAGE_FILE.
