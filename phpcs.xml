@@ -12,9 +12,4 @@
   <!-- <?php tags and constants (true,false,null) need to be lowercase  -->
   <rule ref="Generic.PHP.LowerCaseKeyword"/>
   <rule ref="Generic.PHP.LowerCaseConstant"/>
-
-  <rule ref="WordPress">
-    <!-- There are numerous cases where we want to override WP globals -->
-    <exclude name="WordPress.WP.GlobalVariablesOverride" />
-  </rule>
 </ruleset>
