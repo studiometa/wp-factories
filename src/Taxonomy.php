@@ -19,7 +19,7 @@ class Taxonomy {
 	 * @param  string $translation_domain Translation domain name.
 	 * @return array                      Labels
 	 */
-	public static function generate_labels( string $singular, string $plural, string $translation_domain ) {
+	public static function generate_labels( string $singular, string $plural, string $translation_domain = null ) {
 		$singular_lowercase = strtolower( $singular );
 		$plural_lowercase   = strtolower( $plural );
 
@@ -62,7 +62,7 @@ class Taxonomy {
 	 * @param  bool   $public             Is taxonomy public?.
 	 * @return array                      Taxonomy object.
 	 */
-	public static function create( string $slug, string $singular, string $plural, array $post_types, string $translation_domain, array $args = array(), bool $hierarchical = false, bool $public = true ) {
+	public static function create( string $slug, string $singular, string $plural, array $post_types, string $translation_domain = null, array $args = array(), bool $hierarchical = false, bool $public = true ) {
 		$labels = self::generate_labels( $singular, $plural, $translation_domain );
 
 		$default_args = array(
