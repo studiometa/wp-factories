@@ -15,6 +15,7 @@ In your wordpress theme:
 functions.php
 ```php
 use Studiometa\WP\Factories\Post_Type;
+use Studiometa\WP\Factories\Taxonomy;
 
 /**
  * Register post types
@@ -39,7 +40,17 @@ function register_post_types() {
   );
 }
 
+/**
+ * Register taxonomies
+ *
+ * @return void
+ */
+function register_taxonomies() {
+  Taxonomy::create( 'brand', 'Brand', 'Brands', array( 'car' ), 'i18n_domain', array(), false );
+}
+
 add_action( 'init', 'register_post_types' );
+add_action( 'init', 'register_taxonomies' );
 ```
 
 ## Contributing
