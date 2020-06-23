@@ -2,6 +2,8 @@
 
 > Helper to easily create Wordpress taxonomy/custom post type.
 
+[![Packagist Version](https://img.shields.io/packagist/v/studiometa/wp-factories?style=flat-square)](https://packagist.org/packages/studiometa/wp-factories)
+
 ## Usage
 
 ```
@@ -19,7 +21,7 @@ use Studiometa\WP\Factories\Post_Type;
  *
  * @return void
  */
-public function register_post_types() {
+function register_post_types() {
   Post_Type::create(
     'beautifull-car',
     'Car',
@@ -37,7 +39,7 @@ public function register_post_types() {
   );
 }
 
-add_action( 'init', array( $this, 'register_post_types' ) );
+add_action( 'init', 'register_post_types' );
 ```
 
 ## Contributing
