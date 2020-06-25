@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="studiometa/wp-factories">
+  <!-- Don't check composer dependencies -->
+  <exclude-pattern>/vendor/</exclude-pattern>
+
+  <!--
+    Ending tags '?>' can be really painful to debug.
+    Just disallow them in the end of the file
+  -->
+  <rule ref="PSR2.Files.ClosingTag.NotAllowed"/>
+
+  <!-- <?php tags and constants (true,false,null) need to be lowercase  -->
+  <rule ref="Generic.PHP.LowerCaseKeyword"/>
+  <rule ref="Generic.PHP.LowerCaseConstant"/>
+</ruleset>
